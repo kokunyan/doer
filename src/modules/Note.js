@@ -1,13 +1,13 @@
 export default class Note {
     
-    text;
-    startDate;
-    dueDate;
-    priority;
     done = false;
 
-    constructor(name) {
+    constructor(name, text, startDate, dueDate, priority) {
         this.name = name;
+        this.text = text;
+        this.startDate = startDate;
+        this.dueDate = dueDate;
+        this.priority = priority;
     }
     
     getName = () => {
@@ -32,5 +32,13 @@ export default class Note {
 
     setUndone = () => {
         this.done = false;
+    }
+
+    setPriority = (priority) => {
+        this.priority = priority;
+    }
+
+    getPriority = () => {
+        return this.priority;
     }
 }

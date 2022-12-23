@@ -1,15 +1,23 @@
 export default class Project {
-    noteList = [];
 
     constructor (name) {
         this.name = name;
+        this.notes = [];
     }
 
-    setName = (name) => {
+    setName(name) {
         this.name = name;
     }
 
-    getName = () => {
+    getName() {
         return this.name;
+    }
+
+    setNotes(notes) {
+        this.notes = notes;
+    }
+
+    getNotes() {
+        return this.notes;
     }
 }

@@ -1,10 +1,56 @@
 import { Storage } from "./Storage";
 
-export const UI = (() => {
+export default class UI {
 
-    // Add note/project buttons
-    
-    function addButtons() {
+    body = document.querySelector('body');
+
+    static addStoredEntries() {
+        if (localStorage.getItem('projectList') === null) {
+            Storage.addDefaultProject();
+            renderNotes(Storage.findProject('Default Project').noteList);
+        } 
+        else {
+            Storage.getFromLocalStorage();
+            Project.forEach((project) => {
+                renderNotes(project.noteList);
+            });
+        }
+ 
+    }
+
+    static renderNotes(noteList) {
+        const noteContainer = document.querySelector('#notes');
+        const noteDiv = document.createElement('div');
+        const noteTitle = document.createElement('div');
+        const noteContent = document.createElement('div');
+ 
+        for (let i = 0; i < noteList.length; i++) {
+            noteTitle.textContent = noteList[i].getName();
+            noteContent.textContent = noteList[i].getText();
+            noteDiv.setAttribute('class', 'noteDiv');
+            noteTitle.setAttribute('class', 'noteTitle');
+            noteContent.setAttribute('class', 'noteContent');
+            noteDiv.appendChild(noteTitle);
+            noteDiv.appendChild(noteContent);
+            noteContainer.appendChild(noteDiv);
+            body.appendChild(noteContainer);
+        }
+    }
+
+    static renderProjects(projectList) {
+        const projectContainer = document.querySelector('#projects');
+        const projectDiv = document.createElement('div');
+        const projectTitle = document.createElement('div');
+
+        for (let i = 0; i < projectList.length; i++) {
+            projectTitle.textContent = projectList[i].getName();
+            projectDiv.appendChild(projectTitle);
+            projectContainer.appendChild(projectDiv);
+            body.appendChild(projectContainer);
+        }
+    }
+
+    static addButtons() {
         const projectBtn = document.querySelector('#addProject');
         const noteBtn = document.querySelector('#addNote');
         const deleteProjectBtn = document.querySelector('#deleteProject');
@@ -31,8 +77,4 @@ export const UI = (() => {
             Storage.deleteNote(projectName, noteName);
         })    
     }
-
-    return {
-        addButtons
-      };
-})()
+}
