@@ -14,14 +14,22 @@ export default class ProjectList {
         this.projects = projects;
     }
 
-    addProject(newProject) {
-        if (this.projects.find(project => project.name === newProject.name)) return;
-        else this.projects.push(newProject);
+    addProject(newProjectName) {
+        if (this.projects.find((project) => project.name === newProjectName)) return;
+        else this.projects.push(new Project(newProjectName));
     }
 
     deleteProject(name) {
         const targetProject = this.projects.find((project) => project.name === name);
         projects.splice(this.projects.indexOf(targetProject), 1);
+    }
+
+    findProject(name) {
+        return this.projects.find((project) => project.name === name);
+    }
+
+    addDefaultProject() {
+        this.addProject('Default Project');
     }
 
 } 

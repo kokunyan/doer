@@ -4,18 +4,18 @@ export default class UI {
 
     body = document.querySelector('body');
 
-    static addStoredEntries() {
+    static renderAllNotes() {
         if (localStorage.getItem('projectList') === null) {
             Storage.addDefaultProject();
-            renderNotes(Storage.findProject('Default Project').noteList);
+            this.renderNotes(Storage.findProject('Default Project').notes);
         } 
         else {
-            Storage.getFromLocalStorage();
-            Project.forEach((project) => {
-                renderNotes(project.noteList);
+            console.log(Storage.getProjectList());
+            const projectList = Storage.getProjectList();
+            projectList.forEach((project) => {
+                renderNotes(project.notes);
             });
         }
- 
     }
 
     static renderNotes(noteList) {

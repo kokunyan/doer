@@ -32,14 +32,25 @@ export default class Storage {
     }
 
     static addProject(name) {
-        const projectList = Storage.getProjectList();
+        const projectList = this.getProjectList();
         projectList.addProject(name);
-        saveProjectList(projectList);
+        this.saveProjectList(projectList);
     }
 
     static deleteProject(name) {
-        const projectList = Storage.getProjectList();
+        const projectList = this.getProjectList();
         projectList.deleteProject(name);
-        saveProjectList(projectList);
+        this.saveProjectList(projectList);
+    }
+
+    static addDefaultProject() {
+        const projectList = new ProjectList();
+        projectList.addDefaultProject();
+        this.saveProjectList(projectList);
+    }
+
+    static findProject(name) {
+        const projectList = this.getProjectList();
+        return projectList.findProject(name);
     }
 }
