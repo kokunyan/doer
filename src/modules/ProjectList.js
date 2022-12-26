@@ -1,5 +1,6 @@
 import Storage from "./Storage";
 import Project from "./Project";
+import Note from "./Note";
 
 export default class ProjectList {
     constructor() {
@@ -30,6 +31,12 @@ export default class ProjectList {
 
     addDefaultProject() {
         this.addProject('Default Project');
+        this.findProject('Default Project').getNotes().push(new Note('Your new note!', 'Try to type something here'));
+    }
+
+    renameProject(oldName, newName) {
+        const oldProject = this.findProject(oldName);
+        oldProject.name = newName;
     }
 
 } 

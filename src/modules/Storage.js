@@ -49,8 +49,11 @@ export default class Storage {
         this.saveProjectList(projectList);
     }
 
-    static findProject(name) {
+    static renameProject(oldName, newName) {
         const projectList = this.getProjectList();
-        return projectList.findProject(name);
+        projectList.renameProject(oldName, newName);
+        this.saveProjectList(projectList);
     }
+
+    
 }
