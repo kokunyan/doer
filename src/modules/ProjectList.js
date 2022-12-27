@@ -31,7 +31,7 @@ export default class ProjectList {
 
     addDefaultProject() {
         this.addProject('Default Project');
-        this.findProject('Default Project').getNotes().push(new Note('Your new note!', 'Try to type something here'));
+        this.findProject('Default Project').getNotes().push(new Note('Your first note!', 'Try to type something here'));
     }
 
     renameProject(oldName, newName) {

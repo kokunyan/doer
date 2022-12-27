@@ -3,14 +3,11 @@ import Storage from "./Storage";
 export default class UI {
 
     static render() {
-
+        if (localStorage.getItem('projectList') === null) Storage.addDefaultProject();
+        
         const projectList = Storage.getProjectList();
 
-        if (localStorage.getItem('projectList') === null) {
-            Storage.addDefaultProject();
-        } 
-
-        projectList.projects.forEach((project) => {
+        projectList.getProjects().forEach((project) => {
             this.renderNotes(project.getNotes());
         });
 
@@ -54,5 +51,39 @@ export default class UI {
         }
 
         body.appendChild(projectContainer);
+    }
+
+    static addContextMenu() {
+        const contextMenu = document.getElementById('context-menu');
+        const scopeOfMenu = document.querySelector('body');
+        const addBtn = document.querySelector('#context-menu-add-btn');
+        const deleteBtn = document.querySelector('#context-menu-delete-btn');
+
+        scopeOfMenu.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+
+            let x = e.offsetX, y = e.offsetY;
+            contextMenu.style.top = `${y}px`;
+            contextMenu.style.left = `${x}px`;
+
+            contextMenu.classList.remove('visible');
+
+            setTimeout(() => {
+                contextMenu.classList.add('visible');
+            })
+        })
+
+        scopeOfMenu.addEventListener('click', (e) => {
+            if (e.target.offsetParent != contextMenu) {
+              contextMenu.classList.remove("visible");
+            }
+        })
+
+        addBtn.addEventListener('cick', (e) => {
+            const targetName = e.target.children[0].innerText;
+            console.log(targetName); //ne rabotaet
+            
+        })
+
     }
 }

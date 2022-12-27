@@ -11,7 +11,7 @@ body {
     align-items: center;
 }
 
-.timer-bar {
+#time-bar {
     margin-top: 15px;
     font-family: Inter;
     display: flex;
@@ -19,7 +19,7 @@ body {
     gap: 15px;
 }
 
-.timer-bar-divider {
+#time-bar .divider {
     color: #565656;
     font-style: normal;
     font-weight: 400;
@@ -28,7 +28,7 @@ body {
     letter-spacing: 0.07em;
 }
 
-.timer-bar-divider::after {
+#time-bar .divider::after {
     content: "";
     background-color: #d6d9e1;
     width: 1px;
@@ -38,6 +38,29 @@ body {
     margin-top: 5px;
 }
 
+#context-menu {
+  position: fixed;
+  z-index: 10000;
+  width: 150px;
+  background: #1b1a1a;
+  border-radius: 5px;
+  transform: scale(0);
+  transform-origin: top;
+}
+
+#context-menu.visible {
+    transform: scale(1);
+    transition: transform 200ms ease-in-out;
+}
+
+#context-menu .item {
+  padding: 8px 10px;
+  font-size: 15px;
+  color: #eee;
+}
+
+
+
 .noteDiv {
     width: 250px;
     height: 150px;
@@ -46,4 +69,3 @@ body {
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
 }
-
