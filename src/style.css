@@ -1,8 +1,11 @@
 @font-face {
     font-family: 'Inter';
-    src: url('./assets/Inter-VariableFont_slnt\,wght.ttf') format('TrueType'),
-        url('./assets/Montserrat-VariableFont_wght.ttf') format('TrueType');
+    src: url('./assets/Inter-VariableFont_slnt\,wght.ttf') format('TrueType');
+}
 
+@font-face {
+    font-family: 'Monsterrat';
+    src: url('./assets/Montserrat-VariableFont_wght.ttf') format('TrueType');
 }
 
 body {
@@ -38,6 +41,22 @@ body {
     margin-top: 5px;
 }
 
+#notes {
+    display: flex;
+    flex-direction: row;
+    width: 1050px;
+    height: auto;
+    margin: 40px;
+}
+
+.noteTitle {
+    font-family: 'Monsterrat';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 13px;
+    line-height: 16px;
+}
+
 #context-menu {
   position: fixed;
   z-index: 10000;
@@ -59,7 +78,25 @@ body {
   color: #eee;
 }
 
+#add-btn.hidden {
+    display: none;
+}
 
+#copy-btn.hidden {
+    display: none;
+}
+#delete-btn.hidden {
+    display: none;
+}
+#set-time-btn.hidden {
+    display: none;
+}
+#track-time-btn.hidden {
+    display: none;
+}
+#change-priority-btn.hidden {
+    display: none;
+}
 
 .noteDiv {
     width: 250px;

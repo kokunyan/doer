@@ -55,9 +55,15 @@ export default class UI {
 
     static addContextMenu() {
         const contextMenu = document.getElementById('context-menu');
-        const scopeOfMenu = document.querySelector('body');
-        const addBtn = document.querySelector('#context-menu-add-btn');
-        const deleteBtn = document.querySelector('#context-menu-delete-btn');
+        const scopeOfMenu = document.getElementById('notes');
+        const addBtn = document.getElementById('add-btn');
+        const copyBtn = document.getElementById('copy-btn');
+        const deleteBtn = document.getElementById('delete-btn');
+        const setTimeBtn = document.getElementById('set-time-btn');
+        const trackTimeBtn = document.getElementById('track-time-btn');
+        const changePriorityBtn = document.getElementById('change-priority-btn');
+
+        
 
         scopeOfMenu.addEventListener('contextmenu', (e) => {
             e.preventDefault();
@@ -66,11 +72,34 @@ export default class UI {
             contextMenu.style.top = `${y}px`;
             contextMenu.style.left = `${x}px`;
 
-            contextMenu.classList.remove('visible');
-
-            setTimeout(() => {
-                contextMenu.classList.add('visible');
+            let target = e.target;
+            
+            deleteBtn.addEventListener('click', () => {
+                
+                console.log(target);            
             })
+
+            if (target.className === 'noteDiv') {
+                contextMenu.classList.remove('visible');
+                addBtn.classList.add('hidden');
+                copyBtn.classList.remove('hidden');
+                deleteBtn.classList.remove('hidden');
+                setTimeBtn.classList.remove('hidden');
+                trackTimeBtn.classList.remove('hidden');
+                changePriorityBtn.classList.remove('hidden');
+                setTimeout(() => contextMenu.classList.add('visible'));
+            }
+
+            else {
+                contextMenu.classList.remove('visible');
+                addBtn.classList.remove('hidden');
+                copyBtn.classList.add('hidden');
+                deleteBtn.classList.add('hidden');
+                setTimeBtn.classList.add('hidden');
+                trackTimeBtn.classList.add('hidden');
+                changePriorityBtn.classList.add('hidden');
+                setTimeout(() => contextMenu.classList.add('visible'));
+            }
         })
 
         scopeOfMenu.addEventListener('click', (e) => {
@@ -79,11 +108,7 @@ export default class UI {
             }
         })
 
-        addBtn.addEventListener('cick', (e) => {
-            const targetName = e.target.children[0].innerText;
-            console.log(targetName); //ne rabotaet
-            
-        })
+
 
     }
 }
