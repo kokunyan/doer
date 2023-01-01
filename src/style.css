@@ -57,47 +57,6 @@ body {
     line-height: 16px;
 }
 
-#context-menu {
-  position: fixed;
-  z-index: 10000;
-  width: 150px;
-  background: #1b1a1a;
-  border-radius: 5px;
-  transform: scale(0);
-  transform-origin: top;
-}
-
-#context-menu.visible {
-    transform: scale(1);
-    transition: transform 200ms ease-in-out;
-}
-
-#context-menu .item {
-  padding: 8px 10px;
-  font-size: 15px;
-  color: #eee;
-}
-
-#add-btn.hidden {
-    display: none;
-}
-
-#copy-btn.hidden {
-    display: none;
-}
-#delete-btn.hidden {
-    display: none;
-}
-#set-time-btn.hidden {
-    display: none;
-}
-#track-time-btn.hidden {
-    display: none;
-}
-#change-priority-btn.hidden {
-    display: none;
-}
-
 .noteDiv {
     width: 250px;
     height: 150px;
@@ -105,4 +64,15 @@ body {
     border-top: 3px solid #FF7373;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 15px;
+}
+
+#noteForm {
+    display: flex;
+    flex-direction: column;
+    width: 1040px;
+    background: #FFFFFF;
+    position: fixed;
+    left: 441px;
+    top: 186px;
+    z-index: 1000;
 }

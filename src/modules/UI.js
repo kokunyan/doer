@@ -53,62 +53,65 @@ export default class UI {
         body.appendChild(projectContainer);
     }
 
-    static addContextMenu() {
-        const contextMenu = document.getElementById('context-menu');
-        const scopeOfMenu = document.getElementById('notes');
-        const addBtn = document.getElementById('add-btn');
-        const copyBtn = document.getElementById('copy-btn');
-        const deleteBtn = document.getElementById('delete-btn');
-        const setTimeBtn = document.getElementById('set-time-btn');
-        const trackTimeBtn = document.getElementById('track-time-btn');
-        const changePriorityBtn = document.getElementById('change-priority-btn');
+    static expandNote() {
+        const notes = document.getElementById('notes');
+        notes.addEventListener('mouseover', (e) => {
+            if (e.target.className !== 'noteDiv') return;
+            let styles = window.getComputedStyle(e.target); 
+            e.target.style.border = `2px solid ${styles.borderTopColor}`;
+        })
+        notes.addEventListener('mouseout', (e) => {
+            if (e.target.className !== 'noteDiv') return;
+            e.target.style.border = '';
+        })
+        notes.addEventListener('click', (e) => {
+            if (e.target.className !== 'noteDiv') return;
+            
+        })
+    }
 
+
+    static addNewProjectButton() {
+        const notes = document.getElementById('notes');
+        const addButton = document.createElement('addButton');
+        
+        addButton.setAttribute('id', 'add-button');
+        addButton.addEventListener('click', () => {
+            //
+        });
+
+        notes.prepend(addButton);
+    }
+
+    static openNoteForm(note) {
+
+
+
+        const noteForm = document.createElement('form');
+        const noteTitle = document.createElement('input');
+        const noteText = document.createElement('input');
+        const noteButtons = document.createElement('div');
+        const submitButton = document.createElement('div');
         
 
-        scopeOfMenu.addEventListener('contextmenu', (e) => {
-            e.preventDefault();
+        noteForm.setAttribute('id', 'noteForm');
 
-            let x = e.offsetX, y = e.offsetY;
-            contextMenu.style.top = `${y}px`;
-            contextMenu.style.left = `${x}px`;
+        noteTitle.setAttribute('id', 'noteTitle')
+        noteTitle.setAttribute('type', 'text');
+        noteTitle.setAttribute('placeholder', 'New Note...');
+        
+        noteText.setAttribute('id', 'noteText');
+        noteText.setAttribute('type', 'text');
+        noteText.setAttribute('placeholder', 'Hello World!');
 
-            let target = e.target;
-            
-            deleteBtn.addEventListener('click', () => {
-                
-                console.log(target);            
-            })
+        noteButtons.appendChild(submitButton);
 
-            if (target.className === 'noteDiv') {
-                contextMenu.classList.remove('visible');
-                addBtn.classList.add('hidden');
-                copyBtn.classList.remove('hidden');
-                deleteBtn.classList.remove('hidden');
-                setTimeBtn.classList.remove('hidden');
-                trackTimeBtn.classList.remove('hidden');
-                changePriorityBtn.classList.remove('hidden');
-                setTimeout(() => contextMenu.classList.add('visible'));
-            }
-
-            else {
-                contextMenu.classList.remove('visible');
-                addBtn.classList.remove('hidden');
-                copyBtn.classList.add('hidden');
-                deleteBtn.classList.add('hidden');
-                setTimeBtn.classList.add('hidden');
-                trackTimeBtn.classList.add('hidden');
-                changePriorityBtn.classList.add('hidden');
-                setTimeout(() => contextMenu.classList.add('visible'));
-            }
-        })
-
-        scopeOfMenu.addEventListener('click', (e) => {
-            if (e.target.offsetParent != contextMenu) {
-              contextMenu.classList.remove("visible");
-            }
-        })
-
-
+        noteForm.appendChild(noteTitle);
+        noteForm.appendChild(noteText);
+        noteForm.appendChild(noteButtons);
+        noteForm.appendChild(noteTitle);
 
     }
+
+        
 }

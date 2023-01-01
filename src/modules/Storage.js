@@ -49,6 +49,14 @@ export default class Storage {
         this.saveProjectList(projectList);
     }
 
+    static addNote(projectName, noteName, note) {
+        const projectList = this.getProjectList();
+        if (projectList.findProject(projectName).findNote(noteName)) {
+            return console.log('It is already here');
+        } ;
+        
+    }
+
     static renameProject(oldName, newName) {
         const projectList = this.getProjectList();
         projectList.renameProject(oldName, newName);
