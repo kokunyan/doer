@@ -71,22 +71,17 @@ export default class UI {
     }
 
 
-    static addNewProjectButton() {
+    static addNewNoteBtn() {
         const notes = document.getElementById('notes');
         const addButton = document.createElement('addButton');
         
+        addButton.innerText = '+';
         addButton.setAttribute('id', 'add-button');
-        addButton.addEventListener('click', () => {
-            //
-        });
-
+        addButton.addEventListener('click', () => this.openNoteForm())
         notes.prepend(addButton);
     }
 
     static openNoteForm(note) {
-
-
-
         const noteForm = document.createElement('form');
         const noteTitle = document.createElement('input');
         const noteText = document.createElement('input');
@@ -95,22 +90,19 @@ export default class UI {
         
 
         noteForm.setAttribute('id', 'noteForm');
-
         noteTitle.setAttribute('id', 'noteTitle')
         noteTitle.setAttribute('type', 'text');
         noteTitle.setAttribute('placeholder', 'New Note...');
-        
         noteText.setAttribute('id', 'noteText');
         noteText.setAttribute('type', 'text');
         noteText.setAttribute('placeholder', 'Hello World!');
-
+        
         noteButtons.appendChild(submitButton);
-
         noteForm.appendChild(noteTitle);
         noteForm.appendChild(noteText);
         noteForm.appendChild(noteButtons);
-        noteForm.appendChild(noteTitle);
 
+        if (note)
     }
 
         

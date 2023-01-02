@@ -25,8 +25,10 @@ export default class Project {
         return this.notes.find((note) => note.name === name);
     }
 
-    addProject(newNoteName, ) {
-        if (this.notes.find((note) => note.name === newNoteName)) return;
+    addNote(newNoteName, newNote) {
+        if (this.notes.find((note) => note.name === newNoteName)) {
+            return alert('We already have it');
+        } 
         else this.notes.push(new Note(newNoteName));
     }
 }

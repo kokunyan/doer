@@ -51,10 +51,8 @@ export default class Storage {
 
     static addNote(projectName, noteName, note) {
         const projectList = this.getProjectList();
-        if (projectList.findProject(projectName).findNote(noteName)) {
-            return console.log('It is already here');
-        } ;
-        
+        const project = projectList.findProject(projectName);
+        project.findNote(noteName);
     }
 
     static renameProject(oldName, newName) {

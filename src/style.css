@@ -76,3 +76,8 @@ body {
     top: 186px;
     z-index: 1000;
 }
+
+#add-button {
+    width: 250px;
+    height: 50px;
+}
