@@ -1,6 +1,6 @@
-import 'normalize.css'
-import './style.css';
+import 'normalize.css';
+import './styles/style.css';
+import './styles/hystmodal.css';
 import UI from './modules/UI';
 
 UI.render();
-UI.expandNote();

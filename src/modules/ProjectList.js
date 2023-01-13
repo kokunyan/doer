@@ -1,4 +1,4 @@
-import Storage from "./Storage";
+import {differenceInSeconds, parseISO} from 'date-fns'
 import Project from "./Project";
 import Note from "./Note";
 
@@ -31,12 +31,27 @@ export default class ProjectList {
 
     addDefaultProject() {
         this.addProject('Default Project');
-        this.findProject('Default Project').getNotes().push(new Note('Your first note!', 'Try to type something here'));
+        const defaultProject =  this.findProject('Default Project');
+        defaultProject.getNotes().push(new Note('Your first note!', 'Try to type something here'));
+        defaultProject.changeLastOpened();
+    }
+
+    findLastOpened() {
+        const today = new Date();
+        const dates = [];
+        
+        this.projects.forEach(project => {
+            dates.push(differenceInSeconds(today, parseISO(project.lastTimeOpened)))
+        })
+        
+        const indexOfLastProject = dates.indexOf(Math.min(...dates));
+        const lastProject = this.projects[indexOfLastProject];
+        
+        return lastProject;       
     }
 
     renameProject(oldName, newName) {
         const oldProject = this.findProject(oldName);
         oldProject.name = newName;
     }
-
 } 

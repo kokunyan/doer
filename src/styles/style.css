@@ -1,11 +1,11 @@
 @font-face {
     font-family: 'Inter';
-    src: url('./assets/Inter-VariableFont_slnt\,wght.ttf') format('TrueType');
+    src: url('../assets/Inter-VariableFont_slnt\,wght.ttf') format('TrueType');
 }
 
 @font-face {
     font-family: 'Monsterrat';
-    src: url('./assets/Montserrat-VariableFont_wght.ttf') format('TrueType');
+    src: url('../assets/Montserrat-VariableFont_wght.ttf') format('TrueType');
 }
 
 body {
@@ -47,6 +47,7 @@ body {
     width: 1050px;
     height: auto;
     margin: 40px;
+    gap: 20px;
 }
 
 .noteTitle {
@@ -66,18 +67,9 @@ body {
     border-radius: 15px;
 }
 
-#noteForm {
-    display: flex;
-    flex-direction: column;
-    width: 1040px;
-    background: #FFFFFF;
-    position: fixed;
-    left: 441px;
-    top: 186px;
-    z-index: 1000;
-}
-
 #add-button {
     width: 250px;
     height: 50px;
+    border: 3px solid #565656;
+    border-radius: 15px;
 }

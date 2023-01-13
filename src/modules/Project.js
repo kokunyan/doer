@@ -1,8 +1,11 @@
+import {formatISO, parseISO} from 'date-fns'
+
 export default class Project {
 
     constructor (name) {
         this.name = name;
         this.notes = [];
+        this.lastTimeOpened;
     }
 
     setName(name) {
@@ -25,10 +28,14 @@ export default class Project {
         return this.notes.find((note) => note.name === name);
     }
 
-    addNote(newNoteName, newNote) {
-        if (this.notes.find((note) => note.name === newNoteName)) {
+    addNote(newNote) {
+        if (this.notes.find((note) => note.name === newNote.name)) {
             return alert('We already have it');
         } 
-        else this.notes.push(new Note(newNoteName));
+        else this.notes.push(newNote);
+    }
+
+    changeLastOpened() {
+        this.lastTimeOpened = formatISO(new Date());
     }
 }
