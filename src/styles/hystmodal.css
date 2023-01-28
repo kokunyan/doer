@@ -103,25 +103,41 @@
 [contentEditable=true]:empty:before {
     content: attr(placeholder);
     opacity: 0.6;
-  }
+}
 
-#hystmodalButtons {
+.hystmodal__window #hystmodalButtons {
+    height: 25px;
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    align-items: center;
 }
 
-#hystmodalButtons button {
-    border: 0;
-    background: none;
+#hystmodalButtons .deleteBtn {
+    width: 20px;
+    height: 21px;
+    background-image: url('../assets/trash.svg');
+    background-repeat: no-repeat;
 }
 
-#saveBtn, #addBtn {
-    display: none;
+#hystmodalButtons .priorityBtn {
+    width: 20px;
+    height: 21px;
+    background-image: url('../assets/importance.svg');
+    background-repeat: no-repeat;
 }
+
+#hystmodalButtons .timeBtn {
+    width: 20px;
+    height: 21px;
+    background-image: url('../assets/clock.svg');
+    background-repeat: no-repeat;
+}
+
 
 @media all and (max-width:767px){
     .hystmodal__window{
         margin: 0;
     }
 }
+

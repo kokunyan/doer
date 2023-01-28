@@ -1,10 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-  <line x1="4" y1="7" x2="20" y2="7" />
-  <line x1="10" y1="11" x2="10" y2="17" />
-  <line x1="14" y1="11" x2="14" y2="17" />
-  <path d="M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2 -2l1 -12" />
-  <path d="M9 7v-3a1 1 0 0 1 1 -1h4a1 1 0 0 1 1 1v3" />
+<svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.22105 4.46843H14.1053M6.05263 7.68948V12.5211M9.27369 7.68948V12.5211M2.02632 4.46843L2.83158 14.1316C2.83158 14.5587 3.00126 14.9684 3.30329 15.2704C3.60532 15.5724 4.01497 15.7421 4.44211 15.7421H10.8842C11.3113 15.7421 11.721 15.5724 12.023 15.2704C12.3251 14.9684 12.4947 14.5587 12.4947 14.1316L13.3 4.46843M5.24737 4.46843V2.05264C5.24737 1.83907 5.33221 1.63425 5.48323 1.48323C5.63424 1.33222 5.83906 1.24738 6.05263 1.24738H9.27369C9.48725 1.24738 9.69208 1.33222 9.84309 1.48323C9.99411 1.63425 10.0789 1.83907 10.0789 2.05264V4.46843" stroke="#959595" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
-
-

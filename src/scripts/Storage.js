@@ -49,10 +49,28 @@ export default class Storage {
         this.saveProjectList(projectList);
     }
 
-    static addNote(projectName, note) {
+    static addNote(projectName, newNoteName, text) {
         const projectList = this.getProjectList();
         const project = projectList.findProject(projectName);
-        project.addNote(note);
+        project.addNote(newNoteName, text);
+        this.saveProjectList(projectList);
+    }
+
+    static saveNote(projectName, noteName, newNoteTitle, newNoteText) {
+        const projectList = this.getProjectList();
+        const project = projectList.findProject(projectName);
+        const note = project.findNote(noteName);
+        note.setName(newNoteTitle);
+        note.setText(newNoteText);
+        this.saveProjectList(projectList);
+    }
+
+    static deleteNote(projectName, noteName) {
+        const projectList = this.getProjectList();
+        const project = projectList.findProject(projectName);
+        const notes = project.notes;
+        const note = project.findNote(noteName);
+        notes.splice(notes.indexOf(note), 1);
         this.saveProjectList(projectList);
     }
 
@@ -60,5 +78,29 @@ export default class Storage {
         const projectList = this.getProjectList();
         projectList.renameProject(oldName, newName);
         this.saveProjectList(projectList);
+    }
+
+    static changePriority(priorityLevel, projectName, noteName) {
+        const projectList = this.getProjectList();
+        const project = projectList.findProject(projectName);
+        const note = project.findNote(noteName);
+
+        if (priorityLevel == 'high') note.setPriority('high');
+        else if (priorityLevel == 'medium') note.setPriority('medium');
+        else if (priorityLevel == 'low') note.setPriority('low');
+        else note.setPriority('none');
+        
+        this.saveProjectList(projectList);
+    }
+
+    static checkPriority(projectName, noteName) {
+        const projectList = this.getProjectList();
+        const project = projectList.findProject(projectName);
+        const note = project.findNote(noteName);
+
+        if (note.priority == 'none') return 'none';
+        else if (note.priority == 'high') return 'high';
+        else if (note.priority == 'medium') return 'medium';
+        else if (note.priority == 'low') return 'low';
     }
 }

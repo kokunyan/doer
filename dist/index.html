@@ -33,17 +33,15 @@
         <div class="divider">22:00</div>
         <div class="divider">23:00</div>
     </div>
-    <div class="hystmodal" id="myModal" aria-hidden="true">
+    <div class="hystmodal" id="noteModal" aria-hidden="true">
         <div class="hystmodal__wrap">
             <div class="hystmodal__window" role="dialog" aria-modal="true">
-                <div id="hystmodalTitle" contenteditable="true" placeholder="New Note"></div>
-                <div id="hystmodalText" contenteditable="true" placeholder="Start writing here"></div>
+                <div id="hystmodalTitle" contenteditable="true"></div>
+                <div id="hystmodalText" contenteditable="true"></div>
                 <div id="hystmodalButtons">
-                    <button id="addBtn">Add</button>
-                    <button id="saveBtn">Save</button>
-                    <button id="deleteBtn">Delete</button>
-                    <button id="trackBtn">Manage Time</button>
-                    <button id="closeBtn">Close</button>
+                    <div class="deleteBtn noteBtn"></div>
+                    <div class="priorityBtn noteBtn" data-hystmodal="#priorityModal"></div>
+                    <div class="timeBtn noteBtn"></div>
                 </div>
             </div>
         </div>

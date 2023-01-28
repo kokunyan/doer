@@ -1,4 +1,5 @@
-import {formatISO, parseISO} from 'date-fns'
+import {formatISO} from 'date-fns'
+import Note from './Note';
 
 export default class Project {
 
@@ -28,11 +29,17 @@ export default class Project {
         return this.notes.find((note) => note.name === name);
     }
 
-    addNote(newNote) {
-        if (this.notes.find((note) => note.name === newNote.name)) {
+    addNote(newNoteName, text) {
+        if (this.notes.find((note) => note.name === newNoteName)) {
             return alert('We already have it');
         } 
-        else this.notes.push(newNote);
+        else this.notes.push(new Note(newNoteName, text));
+    }
+
+    saveNote(noteName, newTitle, newText) {
+        const note = findNote(noteName);
+        note.setName(newTitle);
+        note.setText(newText);
     }
 
     changeLastOpened() {
