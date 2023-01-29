@@ -296,7 +296,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
   \******************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.scss */ \"./src/styles/styles.scss\");\n/* harmony import */ var _styles_notes_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/notes.scss */ \"./src/styles/notes.scss\");\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UI */ \"./src/scripts/UI.js\");\n\n\n\n\n_UI__WEBPACK_IMPORTED_MODULE_2__[\"default\"].render();\n\n//# sourceURL=webpack://doer/./src/scripts/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/styles.scss */ \"./src/styles/styles.scss\");\n/* harmony import */ var _styles_notes_scss__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../styles/notes.scss */ \"./src/styles/notes.scss\");\n/* harmony import */ var _UI__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UI */ \"./src/scripts/UI.js\");\n/* harmony import */ var _Note__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Note */ \"./src/scripts/Note.js\");\n\n\n\n\n\n\n_UI__WEBPACK_IMPORTED_MODULE_2__[\"default\"].render();\n\n//# sourceURL=webpack://doer/./src/scripts/index.js?");
 
 /***/ }),
 
