@@ -1,6 +1,6 @@
 # Doer? What is this?
 
-Doer is just a little note-taking app with sticky notes I did for learning.
+Doer is just a little note taking app in pure js that I made for learning purposes.
 
 # Future plans
 
